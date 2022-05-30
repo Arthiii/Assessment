@@ -1,0 +1,174 @@
+<h1>Problem 1 - Tables</h1>
+<div class="pro">
+    <div class="row">
+        <div class="col-4">
+            <div class="box">
+            <label for="val" class="label">Enter the value:</label>
+            <input type="text" id="val" size="15" [(ngModel)]="val" ><br></div>
+            <label for="val" class="label1">Enter the table length:</label>
+            <input type="text" id="v" size="15" [(ngModel)]="v" ><br>
+            <button type="button" class="btn btn-success bt"
+             (click)="clickme()">Click Me</button>
+             
+        </div>
+        <div class="col-8"> 
+             <div *ngFor="let a of table">
+            <p>{{a}}</p>
+        </div>
+    </div>
+    </div>
+
+</div>
+
+<h1>Problem 2 - Square root & Cube root</h1>
+<div class="pro">
+    <div class="row">
+        <div class="col-4">
+            <div class="box">
+            <label for="val" class="label2" >Enter the number:</label>
+            <input type="text" id="val" size="15" [(ngModel)]="num" ><br></div>
+             <button type="button" value="sqrt2" class="btn btn-warning bts"
+              (click)="square()"> Square Root </button>
+              <button type="button" value="sqrt2" class="btn btn-warning bt"
+              (click)="cube()"> Cube Root </button>
+        </div>
+       <div class="col-8">
+        <div *ngFor="let art of tab">
+            <p>{{art}}</p>
+        </div>
+        <div *ngFor="let art of cub">
+            <p>{{art}}</p>
+        </div>
+       </div>
+    </div>
+
+</div>
+
+<h1>Problem 3 - Odd & even</h1>
+<div class="pro">
+    <div class="row">
+        <div class="col-4">
+            <div class="box">
+            <label for="val" class="label3">Enter the value:</label>
+            <input type="text" id="val" size="15" [(ngModel)]="num1" ><br></div>
+            <button type="button" class="btn btn-danger bts"
+             (click)="odd()">Odd</button>
+             <button type="button" class="btn btn-danger bt"
+             (click)="even()">Even</button>
+        </div>
+        <div class="col-8">
+            <div *ngFor="let art of odd1">
+                <p>{{art}}</p>
+            </div>
+            <div *ngFor="let art of even1">
+             <p>{{art}}</p>
+         </div>
+        </div>
+       
+    </div>
+
+</div>
+
+<h1>Problem 4 - Fibonacci Series</h1>
+<div class="pro">
+    <div class="row">
+        <div class="col-4">
+            <div class="box">
+            <label for="val" class="label">Enter the term:</label>
+            <input type="text" class="txt" size="15" [(ngModel)]="num2" ><br></div>
+            <button type="button" class="btn btn-info bt"
+             (click)="fibo()">Fibonacci</button>
+        </div>
+        <div class="col-8">
+            <div *ngFor="let art of fib">
+            <p>{{art}}</p>
+            </div>
+         </div>
+       
+    </div>
+</div>
+<h1>Problem 5 - Table using JSON Server API</h1>
+
+<table class="table table-striped table-hover">
+    <tr>
+        <th *ngFor="let col of columns">
+         {{col}}
+        </th>
+    </tr>
+    <tbody>
+    <tr *ngFor="let prod of products">
+        <td *ngFor="let col of index">
+         {{prod[col]}}
+        </td>
+        <td>
+            <button type="button" class="btn btn-warning" (click)="edit(prod)">Edit</button>
+            <button type="button" class="btn btn-danger" (click)="delete(prod.id)">Delete</button>
+        </td>
+    </tr>
+</tbody>
+
+</table>
+<button type="button" class="btn btn-primary btn-lg bn" (click)="addnew()">Add</button>
+
+<div *ngIf="showedit" class="add">
+    <div class="a">
+        <h1>Update the Products</h1>
+    </div>
+    <div>
+      Product Id: <input disabled type="text" class="spac" [(ngModel)]='prodtoadd.id'>
+    </div>
+    
+    <div>
+        Product: <input type="text"class="spac" [(ngModel)]='prodtoadd.title'>
+    </div>
+    
+    <div>
+        Category: <input type="text"class="spac" [(ngModel)]='prodtoadd.category'>
+    </div>    
+    <div>
+        Price: <input type="text"class="spac" [(ngModel)]='prodtoadd.price'>
+    </div>    
+
+
+    <div class="show">
+        <button type="button"class="btn btn-success"(click)="update()">Update</button>
+    </div>
+    
+    <div class="show">
+        <button type="button" class="btn btn-secondary"(click)="showedit=false">Cancel </button>
+    </div>
+</div>  
+
+
+<div *ngIf="showedit1" >
+    
+    <div class="a">
+        <h1>Add the Products</h1>
+    </div>
+    <div class="add">
+    <div>
+       Product Id: <input type="text" class="spac"[(ngModel)]='prodtoadd.id'>
+    </div>
+      
+    <div class="c" >
+        Product: <input type="text" class="spa"class="spac" [(ngModel)]='prodtoadd.title'>
+    </div>
+      
+    <div>
+        Category: <input type="text" class="sp"class="spac"[(ngModel)]='prodtoadd.category'>
+    </div>    
+    
+    <div>
+        Price: <input type="text"class="s" class="spac"[(ngModel)]='prodtoadd.price'>
+    </div>    
+
+    <div class="show">
+        <button type="button" class="btn btn-success"(click)="add()" >Add</button>
+     
+    </div>
+    
+    <div class="show">
+        <button  type="button" class="btn btn-info" (click)="showedit1=false">Cancel </button>
+    </div>
+</div>
+</div>
