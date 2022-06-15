@@ -1,0 +1,71 @@
+<div class="container-fluid">
+    <div class="row header-section">
+        <span>Angular Multi File Upload </span>
+    </div>
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-5">
+           
+                <div class="col-sm-12">
+                    <h4>Upload File</h4>
+                 <div id="fileSelector">
+                    <input type="file" name="fileUplaod" id="fileUpload" 
+                      multiple ng2FileSelect [uploader]="uploader">
+                    </div>
+                    </div>
+              </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-5">
+            <div class="row card">
+                <!-- <div class="col-sm-12">
+                    <h4>Upload File</h4>
+                    <div id="fileSelector">
+                        <input type="file" name="fileUplaod" id="fileUpload"
+                        multiple ng2FileSelect [uploader]="uploader">
+                    </div> -->
+                    <div>
+                        <div class="row uploadList" *ngFor="let item of uploader.queue">
+                            <div class="col-sm-5">{{item.file.name}}</div>
+                            <div class="row">
+                            <div class="col-sm-9">
+                                <div class="progress">
+                                    <div class="progress-bar bg-primary" 
+                                    [ngStyle]="{'width':item.progress+'%'}"></div>
+                                </div>
+                                <div *ngIf="uploader.options.isHTML5" nowrap>{{ item?.file?.size/1024/1024 | number:'.2' }} MB</div>
+                            </div>
+                            <div class="col-sm-3">
+                             
+                            <span class="material-icons" (click)="item.upload()" id="icon">file_upload</span>
+                            <span class="material-icons" (click)="item.remove()" id="icon">cancel</span>
+                                  
+                            </div>
+                        </div>                        
+                    </div>
+                   
+
+                </div>                
+            </div>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+    <div class="but" >
+        
+            <button type="button" class="btn btn-primary" (click)="uploader.uploadAll()">Upload All</button>
+            <button type="button" class="btn btn-primary bm" (click)="uploader.clearQueue()">Remove All</button>
+       
+    </div>
+</div>
+
+<!-- <span class="text-mute">{{file_error}}</span> -->
+<!-- <form [formGroup]="fileForm" > -->
+    <!-- (ngSubmit)="Submit()" -->
+  <!-- <input type="file" formControlName="file_upload" accept=".docx,.pdf" (change)="onfileSelected($event)"> -->
+  <!-- <span class="text-mute" *ngIf="!fileForm.controls['file_upload'].valid && fileForm.controls['file_upload']?.touched"> Please Select File</span> -->
+  <!-- <div *ngIf="disable_file_uplaod_button">
+    <button type="submit" class="btn btn-default" [disabled]="!fileForm.valid">Upload</button>
+  </div> -->
+ 
+<!-- </form> -->
