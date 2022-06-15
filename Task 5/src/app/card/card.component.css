@@ -1,0 +1,211 @@
+#nav{
+    padding-left: 20px;
+    padding-right: 20px;
+    color: white;
+}
+#menu{
+    padding-top: 15px;
+    color:white;
+}
+#font{
+    font-size: 30px;
+    margin-left: 10px;
+    color:white;
+}
+#bg{
+    background-color: aliceblue;
+    border-radius: 5px;
+    color:black;
+    margin-top: 5px;
+    margin-right: 8px;
+}
+.nav{
+    
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+
+#nav1{
+   color:black; 
+   
+}
+#fil{
+    margin-left: 400px;
+}
+#maleft{
+    margin-left: 30px;
+    font-size: 20px;
+}
+
+.card-width{
+    width:14rem;
+}
+.card {
+    margin-top: 30px;
+    margin-left: 50px;
+    background-color: white;
+    padding: 0px;
+}
+.card-title {
+    font-size: 20px;;
+    padding-top:12px;
+    padding-bottom: 12px;
+    padding-right:5px;
+    padding-left: 10px;
+    /* background-color: #585DFB; */
+    color: white;
+    font-style: sans-serif;
+}
+.card-body{
+    padding:0px;
+}
+.card-text{
+    margin-top: 10px;
+}
+#fonsi{
+    margin-top: 20px;
+    margin-left:10px;
+    font-size: 80px;
+}
+#order{
+    color:blue;
+    margin: 0px;
+    cursor: pointer;
+}
+#matp{
+    margin-top: 20px;
+}
+#foncur{
+    float: right;
+    cursor: pointer;
+    /* margin-left: 60px; */
+    
+}
+.pagin{
+    margin-top: 20px;
+}
+#fonst{
+    font-style:sans-serif;
+}
+.griddisplay{
+    display:grid;
+    grid-template-columns: repeat(4,.1fr);
+    grid-auto-rows:auto;
+    grid-gap:1rem;
+}
+#fcol{
+    color: blue;
+}
+#fons{
+    margin-left: 10px;
+    font-size:40px;
+}
+#cardsi{
+    font-size: 15px;
+}
+.table{
+    margin-left: 50px;
+}
+.form{
+    text-align: center;
+    margin-top: 20px;
+   
+}
+h1{
+    color:brown;
+    font-size: 30px;
+}
+#fin{
+    font-size: 40px;
+    color: brown;
+    display: inline-block;
+}
+#nam{
+    margin-left: 10px;
+    margin-bottom: 10px;
+} 
+.city1{
+   margin-left:8px;
+   margin-bottom: 10px;
+}
+.city{
+    margin-left:47px;
+ }
+ .state{
+     margin-left:40px;
+ }
+ .state1{
+     margin-left:5px;
+     margin-bottom: 10px;
+ }
+ .add{
+     margin-left: 25px;
+     margin-bottom: 10px;
+ }
+ .add1{
+     margin-left:5px;
+    
+ }
+ #btnch{
+     margin-left: 20px;
+     
+ }
+ .custf{
+     text-align: center;
+ }
+ h2{
+     font-size: 25px;
+     margin-top: 20px;
+     margin-left: 20px;
+ }
+ h3{
+    font-size: 35px;
+    margin-top: 5px;
+    margin-left: 20px;
+    color: white;
+}
+.colr{
+    color: white;
+}
+#ui{
+    background-color:#38105A;
+    margin-top: 20px;
+    padding:25px;
+    color:white;
+    border-radius: 5px;
+}
+ #viewicon{
+     font-size: 25px;
+    
+ }
+ #lef{
+     margin-left: 40px;
+ }
+ .ted{
+     font-size: 25px;
+     margin-left: 38px;
+     margin-top: 50px;
+     margin-bottom: 30px;
+ }
+ .cs{
+     margin-top: 30px;
+    
+ }
+ #fonbi{
+     font-size: 130px;
+     margin-left: 10px;
+     padding: 0;
+ }
+ #i{
+     margin-top: 20px;
+ }
+
+ #map { height: 400px; 
+
+}
+#ar{
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}

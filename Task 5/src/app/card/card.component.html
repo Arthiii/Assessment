@@ -1,0 +1,263 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-primary ">
+    <span class="material-icons" id="font">supervisor_account </span>
+    <a class="navbar-brand" id="nav" href="#">Customer Manager</a>
+     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a  class="nav-link" id="bg"  href="#">Customers</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link"  id="menu" href="#" >Orders</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="menu"  href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="menu"  href="#">Login</a>
+          </li>
+        </ul>
+    </div>
+  </nav>
+  <div *ngIf="navview"> 
+  <nav class="nav">
+    <span class="material-icons" id="cust">person </span>
+    <h4>Customers</h4>
+</nav>
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <span class="material-icons" id="maleft">grid_view </span>
+    <a class="navbar-brand" href="#" id="cardsi"(click)="card()">Card View</a>
+    <span class="material-icons"> reorder </span>
+    <a class="nav-link" id="nav1"href="#" (click)="list()">List view</a>
+    <span class="material-icons">place</span>
+    <a class="nav-link" id="nav1"href="#"(click)="map()" >Map view</a>
+    <span class="material-icons"> add </span>
+    <a class="nav-link" id="nav1"href="#" (click)="newcust()">New Customer</a>
+    <label id="fil">Filter: </label><br><br>
+    <input type="text"[(ngModel)]="filt" >
+   </nav>
+  </div>
+
+  <!-- card view -->
+<div *ngIf="cardview" >
+
+  <div class="griddisplay">
+    <div *ngFor="let e of (client | filter:filt ) | paginate:{
+        itemsPerPage:tablesize,currentPage:page,
+        totalItems:count};" class="card card-width"  >
+       <h5 class="card-title bg-primary">{{e.firstname}} {{e.lastname}}<span class="material-icons" 
+        (click)="edit(e)"id="foncur">edit_calendar </span> </h5>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-6">
+              <div class="cardimg"> 
+               <span class="material-icons" id="fonsi">person_2</span>
+              </div>
+            </div>
+            <div class="col-6">
+              <h5 class="card-text">{{e.city}}</h5>
+              <h5 class="card-text">{{e.state}}</h5>
+              <h5 class="card-text" id="order" (click)="ordview()">{{e.list}}</h5>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+    <div class="pagin">
+      <pagination-controls 
+        previousLabel="Prev"
+        nextLabel="Next"
+        (pageChange)="onTableDataChange($event)" > 
+      </pagination-controls>
+    </div>
+</div>
+   
+<!-- List view -->
+<div *ngIf="listview" class="listview">          
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>  </th>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Address</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Order Total</th>
+        <th>  </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let a of (client | filter:filt ) | paginate:{
+        itemsPerPage:tablesize1, currentPage:page,
+        totalItems:count};">
+      <td>  <span class="material-icons" id="fons">person_2</span></td>
+        <td id="fcol">{{a.firstname}}</td>
+        <td>{{a.lastname}}</td>
+        <td>{{a.address}}</td>
+        <td>{{a.city}}</td>
+        <td>{{a.state}}</td>
+        <td>{{a.order}}</td>
+        <td id="fcol">{{a.list}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="pagin">
+    <pagination-controls
+    previousLabel="Prev"
+    nextLabel="Next"
+    (pageChange)="onTableDataChange1($event)">
+  </pagination-controls>
+  </div>
+</div>
+
+   <!-- new customer -->
+<div *ngIf="custview" class="custf">
+  <div class="container">
+   <div class="row">
+    <div class="col-3"></div>
+      <div class="col-6">
+
+        <div id="ui">
+          <form [formGroup]="formValue">
+           <h3>New Customer</h3>
+           <div class="row">
+             <div class="col-6">
+               <label class="colr">First Name</label>
+               <input type="text"id="fname" class="form-control" placeholder="Enter your first name"
+               formControlName="firstname">
+             </div>
+
+              <div class="col-6">
+               <label class="colr">Last Name</label>
+               <input type="text" id="lname" class="form-control" placeholder="Enter your first name"
+               formControlName="lastname">
+             </div>
+            </div><br>
+
+             <label class="colr">Address</label>
+             <input type="text"id="address" class="form-control" placeholder="Enter your address"
+              formControlName="address"><br>
+
+             <div class="row">
+               <div class="col-6">
+                <label class="colr">City</label>
+                <input type="text"id="citys" class="form-control" placeholder="Enter your city"
+                 formControlName="city">
+              </div>
+
+              <div class="col-6">
+               <label class="colr">State</label>
+               <input type="text" id="states" class="form-control" placeholder="Enter your state"
+               formControlName="state">
+              </div>
+            </div><br>
+
+             <input type="submit" name="submit" (click)="add()"
+              value="ADD" class="btn btn-primary form-control
+              btn-block btn-lg">
+           </form>
+         </div>
+       </div>
+      </div>
+    </div>
+  </div>
+
+     <!-- edit icon -->
+<div *ngIf="editview" class="custf">
+  <div class="container">
+   <div class="row">
+     <div class="col-3"></div>
+       <div class="col-6">
+  
+        <div id="ui">
+          <form [formGroup]="formValue">
+          <h3>Edit Customer</h3>
+           <div class="row">
+             <div class="col-6">
+                <label class="colr">First Name</label>
+                <input type="text"id="fname" class="form-control" placeholder="Enter your first name"
+                formControlName="firstname">
+              </div>
+  
+              <div class="col-6">
+                <label class="colr">Last Name</label>
+                <input type="text" id="lname" class="form-control" placeholder="Enter your first name"
+                 formControlName="lastname">
+               </div>
+            </div><br>
+  
+              <label class="colr">Address</label>
+              <input type="text"id="address" class="form-control" placeholder="Enter your address"
+              formControlName="address"><br>
+  
+            <div class="row">
+              <div class="col-6">
+                <label class="colr">City</label>
+                <input type="text"id="citys" class="form-control" placeholder="Enter your city"
+                formControlName="city">
+              </div>
+  
+              <div class="col-6">
+                <label class="colr">State</label>
+                <input type="text" id="states" class="form-control" placeholder="Enter your state"
+                formControlName="state">
+              </div>
+            </div><br>
+  
+              <input type="submit" name="submit" (click)="_update()"
+               value="UPDATE" class="btn btn-primary form-control
+               btn-block btn-lg">
+             </form>
+           </div>
+  
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <!-- map view -->
+<div *ngIf="mapview" card="maps">
+</div>
+
+<!-- customer details -->
+<div *ngIf="custdetailview">
+  <button type="button" class="btn btn-primary" (click)="maps()" id="ar">View Map</button>
+        <div id="map"></div>
+</div>
+    
+<!-- orders view -->
+<div *ngIf="orderview">
+  <h2><span class="material-icons"id="viewicon">
+    person
+    </span>Customer Information</h2>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+      <span class="material-icons" id="lef">list</span>
+      <a class="navbar-brand" href="#" id="cardsi" (click)="customdetails()">Customer Details</a>
+      <span class="material-icons"> local_offer </span>
+      <a class="nav-link" id="nav1"href="#" (click)="custom()">Customer Orders</a>
+      <span class="material-icons">edit_calendar</span>
+      <a class="nav-link" id="nav1"href="#" (click)="editcust()">Edit customer</a>
+      </nav>
+</div>
+
+<!-- custom order -->
+<div *ngIf="customorder">
+  <p class="ted">Orders for Ted James</p>
+  <table class="table table-bordered table-responsive">
+   <tr>
+     <td>Basket Ball</td>
+     <td>$7.99</td>
+   </tr>
+   <tr>
+    <td>Shoes</td>
+    <td>$199.99</td>
+  </tr>
+  <tr>
+    <td> </td>
+    <td>$207.98</td>
+  </tr>
+  </table>
+</div> 
+
