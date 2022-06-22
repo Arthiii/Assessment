@@ -1,0 +1,16 @@
+<mat-toolbar color="primary">
+  My Weather App
+</mat-toolbar>
+<div class="content">
+  <mat-form-field>
+    <mat-label>Select city</mat-label>
+    <mat-select [formControl]="cityControl">
+      <mat-option *ngFor="let city of cities" [value]="city">
+        {{city}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br />
+  <router-outlet></router-outlet>
+</div>
+<h4>Our final weather app using RxJS</h4>
