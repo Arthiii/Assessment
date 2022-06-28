@@ -1,0 +1,26 @@
+{
+  "file": [
+    {
+      "name": "Nanban",
+      "earning": 45,
+      "releaseDate": "2022-06-22T18:30:00.0002",
+      "id": "sB3Vm8"
+    },
+    {
+      "name": "Beast",
+      "earning": 1,
+      "releaseDate": "2022-06-24T18:30:00.000Z",
+      "id": "RaO9OK9"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
